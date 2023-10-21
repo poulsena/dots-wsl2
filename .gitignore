@@ -11,3 +11,4 @@
 .rustup
 go
 .gitconfig
+.ssh
