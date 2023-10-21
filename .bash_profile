@@ -1,0 +1,1 @@
+/home/andr/.config/shell/bash_profile

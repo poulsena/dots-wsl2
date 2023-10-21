@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Rerun every time a new input device is added
+
+while :; do
+	# Remap caps lock to escape, and increase rate
+	xset r rate 300 50
+	setxkbmap -option caps:super,alwin:menu_win
+	killall xcape 2>/dev/null
+	xcape -e 'Super_L=Escape'
+	xset -q | grep -q 'Caps Lock:\s*on' && xdotool key Caps_Lock
+
+	grep -qP -m1 '[^un]bind.+\/[^:]+\(usb\)\/' <(udevadm monitor -u -t seat -s input -s usb)
+done

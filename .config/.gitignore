@@ -1,0 +1,11 @@
+*.jpg
+*.png
+dconf
+github-copilot
+lazygit
+systemd
+yay
+htop
+rclone
+VirtualBox
+bg

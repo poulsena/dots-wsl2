@@ -1,0 +1,13 @@
+.bash_history
+.cache
+.cargo
+.nvm
+.oh-my-zsh
+.profile
+.zcompdump*
+.zshenv
+.zsh_history
+.npm
+.rustup
+go
+.gitconfig

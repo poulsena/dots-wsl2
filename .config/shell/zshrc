@@ -1,0 +1,48 @@
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="robbyrussell"
+
+plugins=(git fast-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+
+# Histoy in cache directory
+HISTSIZE=10000000
+SAVEHIST=10000000
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+
+# Auto/tab completion
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias vim='nvim'
+alias vi='nvim'
+alias cf='cd ~/.config'
+alias zshrc='nvim ~/.zshrc'
+alias zsh='nvim ~/.zshrc'
+alias p='sudo pacman'
+alias update='yay -Syu'
+alias rr='cd ~/.local/src'
+alias gs="git status"
+alias lg="lazygit"
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+source /usr/share/nvm/init-nvm.sh
+
+# bun completions
+[ -s "/home/andr/.bun/_bun" ] && source "/home/andr/.bun/_bun"
+
+#bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+. "$HOME/.cargo/env"
+
+# .local/bin scripts
+export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
